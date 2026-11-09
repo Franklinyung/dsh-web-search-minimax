@@ -1,0 +1,55 @@
+{
+  "name": "dsh-web-search-minimax",
+  "version": "1.0.0",
+  "description": "MiniMax-first web search for the DSH ctx.web seam, with a DuckDuckGo fallback when MiniMax has no quota, no credential, or errors.",
+  "license": "MIT",
+  "author": "Franklinyung",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "test/*.mjs"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "web-search",
+    "minimax",
+    "duckduckgo",
+    "fallback",
+    "search-provider",
+    "ctx.web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Franklinyung/dsh-web-search-minimax.git"
+  },
+  "homepage": "https://github.com/Franklinyung/dsh-web-search-minimax#readme",
+  "bugs": {
+    "url": "https://github.com/Franklinyung/dsh-web-search-minimax/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node test/search-backends.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

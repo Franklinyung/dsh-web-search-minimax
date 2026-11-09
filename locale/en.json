@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "MiniMax web search",
+    "description": "Routes the built-in web search backend through MiniMax's Anthropic-compatible API, with DuckDuckGo as a fallback when MiniMax has no quota or credential."
+  }
+}

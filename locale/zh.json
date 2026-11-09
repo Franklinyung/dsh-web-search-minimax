@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "MiniMax 网页搜索",
+    "description": "内置 web_search 后端走 MiniMax 的 Anthropic 兼容接口（MiniMax-M3 模型），MiniMax 没额度或没凭据时自动回退到 DuckDuckGo。"
+  }
+}

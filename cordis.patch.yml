@@ -1,0 +1,28 @@
+# Web search with a DuckDuckGo fallback.
+#
+# This bundle registers the `minimax-fallback` search provider and pins
+# `web.searchProvider` to it. The provider runs MiniMax's native web search
+# (Anthropic-compatible Messages endpoint + `web_search_20250305` server tool)
+# first, then DuckDuckGo's HTML endpoint when MiniMax has no credential,
+# reports a quota/auth/server error, times out, or returns no results.
+#
+# Every value below is a default; override the row in a higher patch layer
+# (your profile's own cordis.patch.yml) to change the endpoint, the model, the
+# credential reference, or to turn the fallback off. See README.md.
+
+- insert:
+    - id: web-search-minimax-fallback
+      name: dsh-web-search-minimax
+      config:
+        minimaxBaseURL: https://api.minimaxi.com/anthropic/v1
+        minimaxModel: MiniMax-M3
+        minimaxApiKeyEnv: MINIMAX_CN_API_KEY
+        duckduckgoFallback: true
+
+# Pin the chained provider so the seam never selects another registered search
+# provider. `fetchProvider` restates the shipped HTTP fetch provider.
+- id: web
+  name: '@deepseek-ai/dsh-web'
+  config:
+    searchProvider: minimax-fallback
+    fetchProvider: http
